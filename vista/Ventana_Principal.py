@@ -1,14 +1,18 @@
 from tkinter import *
 import tkinter as tk
 from Ventana_Persona import Ventana_Persona
+from Ventana_Automovil import Ventana_Automovil
+from Ventana_Marca import Ventana_Marca
+from Ventana_Modelo import Ventana_Modelo
+from Ventana_Color import Ventana_Color
 from tkinter import ttk
 class Ventana_Principal(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.config(width=400, height=300)
+        self.config(width=1100, height=600)
         self.title("Vision Artificial")
         menuframe=Frame(self,bg="black")
-        menuframe.pack(side="top",fill='x')
+        menuframe.place(x= 0, y=0, width= 1100)
         persona=Menubutton(menuframe,
                               text="Persona",
                               bg="white",
@@ -34,6 +38,11 @@ class Ventana_Principal(tk.Tk):
                               bg="white",
                               activeforeground='black',
                               activebackground='gray52')
+        parqueadero=Menubutton(menuframe,
+                              text="Parqueadero",
+                              bg="white",
+                              activeforeground='black',
+                              activebackground='gray52')
         salir=Menubutton(menuframe,
                               text="Salir",
                               bg="white",
@@ -46,33 +55,27 @@ class Ventana_Principal(tk.Tk):
                                  foreground="white",
                                  activeforeground="black",
                                  activebackground="gray52")
-        menu_persona.add_command(label="silvia",
-                                 command=Ventana_Persona,
-                                 background="black",
-                                 foreground="white",
-                                 activeforeground="black",
-                                 activebackground="gray52")
         menu_automovil=Menu(automovil,tearoff=0)
         menu_automovil.add_command(label="Registro",
-                                 command=lambda:print("hola"),
+                                 command=Ventana_Automovil,
                                  background="black",
                                  foreground="white",
                                  activeforeground="black",
                                  activebackground="gray52")
         menu_automovil.add_command(label="Marca",
-                                 command=lambda:print("Mercedes"),
+                                 command=Ventana_Marca,
                                  background="black",
                                  foreground="white",
                                  activeforeground="black",
                                  activebackground="gray52")
         menu_automovil.add_command(label="Modelo",
-                                 command=lambda:print("2023"),
+                                 command=Ventana_Modelo,
                                  background="black",
                                  foreground="white",
                                  activeforeground="black",
                                  activebackground="gray52")
         menu_automovil.add_command(label="Color",
-                                 command=lambda:print("Rojo"),
+                                 command=Ventana_Color,
                                  background="black",
                                  foreground="white",
                                  activeforeground="black",
@@ -98,9 +101,22 @@ class Ventana_Principal(tk.Tk):
                                  foreground="white",
                                  activeforeground="black",
                                  activebackground="gray52")
+        menu_parqueadero=Menu(parqueadero,tearoff=0)
+        menu_parqueadero.add_command(label="Parqueadero",
+                                 command=lambda:print("hola"),
+                                 background="black",
+                                 foreground="white",
+                                 activeforeground="black",
+                                 activebackground="gray52")
+        menu_parqueadero.add_command(label="Celda",
+                                 command=lambda:print("hola"),
+                                 background="black",
+                                 foreground="white",
+                                 activeforeground="black",
+                                 activebackground="gray52")
         menu_salir=Menu(salir,tearoff=0)
         menu_salir.add_command(label="Salir",
-                                 command=self.destroy,
+                                 command=lambda:self.destroy(),
                                  background="black",
                                  foreground="white",
                                  activeforeground="black",
@@ -115,39 +131,11 @@ class Ventana_Principal(tk.Tk):
         apartamento.pack(side="left")
         camaras.config(menu=menu_camaras)
         camaras.pack(side="left")
+        parqueadero.config(menu=menu_parqueadero)
+        parqueadero.pack(side="left")
         salir.config(menu=menu_salir)
         salir.pack(side="left")
-        """
-        barra = tk.Menu()
-        #****************************Historial****************************************
-        historial = tk.Menu(barra, tearoff=False)
-        historial.add_cascade(label="historia")
-        barra.add_cascade(menu=historial, label="Historia")
-        #*********************************Automovil************************************
-        persona = tk.Menu(barra, tearoff=False)
-        persona.add_cascade(label="Persona")
-        barra.add_cascade(menu=persona, label="Persona")
-        #*********************************persona************************************
-        Automovil = tk.Menu(barra, tearoff=False)
-        Automovil.add_cascade(label="Automovil")
-        Automovil.add_cascade(label="Marca")
-        Automovil.add_cascade(label="Modelo")
-        Automovil.add_cascade(label="Color")
-        barra.add_cascade(menu=Automovil, label="Automovil")
-        #**************************************apartamento*********************************
-        Apartamento = tk.Menu(barra, tearoff=False)
-        Apartamento.add_cascade(label="Apartamento")
-        barra.add_cascade(menu=Apartamento, label="Apartamento")
-         #*************************************camaras**********************************
-        Camaras = tk.Menu(barra, tearoff=False)
-        Camaras.add_cascade(label="Camaras")
-        barra.add_cascade(menu=Camaras, label="Camaras")
-        self.config(menu=barra)
-         #*************************************Parqueaderos**********************************
-        Parqueaderos = tk.Menu(barra, tearoff=False)
-        Parqueaderos.add_cascade(label="Parqueaderos")
-        barra.add_cascade(menu=Parqueaderos, label="Parqueaderos")
-        self.config(menu=barra)
+        
         
         #from Ventana_color import Ventana_Color
         #from Ventana_Persona import Ventana_Persona
@@ -156,4 +144,4 @@ class Ventana_Principal(tk.Tk):
         #from Ventana_automovil import Ventana_Automovil
         #from Ventana_celda import Ventana_Celda
         #from Ventana_parqueadero import Ventana_Parqueadero
-        """
+        

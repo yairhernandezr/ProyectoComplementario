@@ -16,7 +16,7 @@ class Ventana_Color(tk.Toplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         #****************************************Configuracion Ventana **************************
-        self.config(background="black")
+        self.config(background="white")
         self.title("Ventana Color")
         self.geometry("365x200")
          
