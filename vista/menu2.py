@@ -6,7 +6,7 @@ class Ventana_Principal(tk.Tk):
         super().__init__(*args, **kwargs)
         self.config(width=400, height=300)
         self.title("Vision Artificial")
-        barra = tk.Menu()
+        barra = tk.Menu(historial)
         #****************************Historial****************************************
         historial = tk.Menu(barra, tearoff=False)
         historial.add_cascade(label="historia")
